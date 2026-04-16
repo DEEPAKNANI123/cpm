@@ -1180,10 +1180,13 @@ export default function App() {
           ))}
         </div>
         <div className="nav-right">
-          <div className="nav-user" onClick={() => supabase.auth.signOut().then(() => navigate("/"))}>
+          <div className="nav-user">
              {profile?.first_name} {profile?.last_name}
              <div className="avatar">{getInitials(profile)}</div>
           </div>
+          <button className="badge badge-red" style={{ marginLeft: 16, cursor: 'pointer', border: 'none', fontWeight: 600, padding: '6px 12px' }} onClick={() => supabase.auth.signOut().then(() => navigate("/"))}>
+            Logout <span>&#10150;</span>
+          </button>
         </div>
       </nav>
 
